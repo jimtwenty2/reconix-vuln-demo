@@ -4,17 +4,17 @@
 > All secrets in it are fake.
 
 A small Node.js notes app with planted security flaws, made for testing the
-**Reconix-Scanner** VS Code extension.
+**Reconix Code Scanner** VS Code extension.
 
 ## How to scan it
-1. Install the Reconix-Scanner extension in VS Code:
+1. Install the Reconix Code Scanner extension in VS Code:
    **Extensions** view → **`...`** menu → **Install from VSIX...** → choose the `.vsix` file.
 2. Clone this repo:
    ```bash
    git clone https://github.com/jimtwenty2/reconix-vuln-demo.git
    ```
 3. In VS Code, use **File → Open Folder...** and open the `reconix-vuln-demo` folder.
-4. Click the **shield icon** in the left sidebar to open the Vuln Scanner chat, then start a scan.
+4. Click the **shield icon** in the left sidebar to open the Reconix Code Scanner chat, then start a scan.
 
 Scan the code as cloned. If you edit the files, the results may no longer line up with them.
 

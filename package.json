@@ -2,7 +2,7 @@
   "name": "reconix-vuln-demo",
   "version": "1.0.0",
   "private": true,
-  "description": "Intentionally vulnerable Express app used as the demo target for the Reconix-Scanner VS Code extension. Do not deploy.",
+  "description": "Intentionally vulnerable Express app used as the demo target for the Reconix Code Scanner VS Code extension. Do not deploy.",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js"
