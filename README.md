@@ -1,43 +1,27 @@
 # reconix-vuln-demo (Acme Notes)
 
-> **Intentionally vulnerable. Do not deploy, expose to a network, or reuse this code.**
-> Every secret in this repository is fake.
+> **Warning:** this app is intentionally vulnerable. Do not deploy it or reuse its code.
+> All secrets in it are fake.
 
-Acme Notes is a small Express + SQLite notes API. It is the demo target for the
-**Reconix-Scanner** VS Code extension. The code contains deliberate security flaws: injection,
-unsafe file and process handling, weak crypto, leaked secrets, and outdated dependencies with
-known advisories. A few safe patterns also look risky to scanners, so the demo has false
-positives too.
+A small Node.js notes app with planted security flaws, made for testing the
+**Reconix-Scanner** VS Code extension.
 
-## Use it with Reconix-Scanner
-1. Clone this repo next to the extension:
+## How to scan it
+1. Install the Reconix-Scanner extension in VS Code:
+   **Extensions** view → **`...`** menu → **Install from VSIX...** → choose the `.vsix` file.
+2. Clone this repo:
+   ```bash
+   git clone https://github.com/jimtwenty2/reconix-vuln-demo.git
    ```
-   Reconix-Project-Advanced-Course/
-   ├─ reconix-vscode-extension/
-   └─ reconix-vuln-demo/          ← this repo
-   ```
-2. Open the extension repo in VS Code and press **F5** ("Run Extension"). The development
-   host opens this folder.
-3. In the **Vuln Scanner** chat, scan the workspace.
-   - **Static mode** (`vulnScanner.dataSource = "static"`) shows findings recorded from a real
-     scan of this exact code.
-   - **Server mode** scans it live.
+3. In VS Code, use **File → Open Folder...** and open the `reconix-vuln-demo` folder.
+4. Click the **shield icon** in the left sidebar to open the Vuln Scanner chat, then start a scan.
 
-The static findings point at exact files and lines in this repo. If you change the code here,
-regenerate them from the extension repo:
-```bash
-sh scripts/scan-demo.sh ../reconix-vuln-demo
-node scripts/gen-static-findings.mjs
-```
+Scan the code as cloned. If you edit the files, the results may no longer line up with them.
 
 ## Run the app (optional)
-Requires Node 22 or later.
+You don't need to run the app to scan it. To try it anyway (Node.js 22 or later):
 ```bash
 npm install
-npm start          # http://localhost:3000, binds to all interfaces, so keep it on a trusted machine
+npm start    # http://localhost:3000
 ```
-Seeded users: `admin / admin123`, `alice / wonderland`, `bob / builder`.
-
-The answer key (what is planted where) is kept in the extension repo
-(`src/static/groundTruth.json`). That keeps it out of the scanned workspace, so no scanner or
-AI can read the answers.
+Test logins: `admin / admin123`, `alice / wonderland`, `bob / builder`.
